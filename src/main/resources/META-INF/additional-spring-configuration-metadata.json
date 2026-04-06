@@ -1,0 +1,64 @@
+{
+  "properties": [
+    {
+      "name": "app.jwt.secret",
+      "type": "java.lang.String",
+      "description": "Segredo usado para assinatura de tokens JWT."
+    },
+    {
+      "name": "app.jwt.issuer",
+      "type": "java.lang.String",
+      "description": "Emissor dos tokens JWT."
+    },
+    {
+      "name": "app.jwt.expiracao-minutos",
+      "type": "java.lang.Integer",
+      "description": "Tempo de expiração do token JWT em minutos."
+    },
+    {
+      "name": "google.integracoes.application-name",
+      "type": "java.lang.String",
+      "description": "Nome da aplicação para integrações com APIs Google."
+    },
+    {
+      "name": "google.integracoes.sheets.habilitado",
+      "type": "java.lang.Boolean",
+      "description": "Habilita integração com Google Sheets."
+    },
+    {
+      "name": "google.integracoes.sheets.base-url",
+      "type": "java.lang.String",
+      "description": "URL base da API Google Sheets."
+    },
+    {
+      "name": "google.integracoes.drive.habilitado",
+      "type": "java.lang.Boolean",
+      "description": "Habilita integração com Google Drive."
+    },
+    {
+      "name": "google.integracoes.drive.base-url",
+      "type": "java.lang.String",
+      "description": "URL base da API Google Drive."
+    },
+    {
+      "name": "google.integracoes.calendar.habilitado",
+      "type": "java.lang.Boolean",
+      "description": "Habilita integração com Google Calendar."
+    },
+    {
+      "name": "google.integracoes.calendar.base-url",
+      "type": "java.lang.String",
+      "description": "URL base da API Google Calendar."
+    },
+    {
+      "name": "google.integracoes.gmail.habilitado",
+      "type": "java.lang.Boolean",
+      "description": "Habilita integração com Gmail API."
+    },
+    {
+      "name": "google.integracoes.gmail.base-url",
+      "type": "java.lang.String",
+      "description": "URL base da API Gmail."
+    }
+  ]
+}
