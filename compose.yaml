@@ -9,7 +9,7 @@ services:
       - 'MYSQL_ROOT_PASSWORD=climbe_root_pass'
       - 'MYSQL_USER=climbe_user'
     ports:
-      - '3306:3306'
+      - '3307:3306'
     volumes:
       - mysql_data:/var/lib/mysql
     healthcheck:

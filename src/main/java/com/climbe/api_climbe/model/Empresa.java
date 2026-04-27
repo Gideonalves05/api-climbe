@@ -29,7 +29,7 @@ public class Empresa {
     @EqualsAndHashCode.Include
     private Integer idEmpresa;
 
-    @Column(name = "razao_social", nullable = false, length = 255)
+    @Column(name = "razao_social", length = 255)
     private String razaoSocial;
 
     @Column(name = "nome_fantasia", nullable = false, length = 255)
@@ -62,9 +62,6 @@ public class Empresa {
     @Column(name = "email", nullable = false, unique = true, length = 255)
     private String email;
 
-    @Column(name = "senha_hash", nullable = false, length = 60)
-    private String senhaHash;
-
     @Column(name = "representante_nome", length = 255)
     private String representanteNome;
 
@@ -73,6 +70,9 @@ public class Empresa {
 
     @Column(name = "representante_contato", length = 50)
     private String representanteContato;
+
+    @Column(name = "representante_email", length = 255)
+    private String representanteEmail;
 
     @OneToMany(mappedBy = "empresa")
     private Set<Proposta> propostas = new LinkedHashSet<>();

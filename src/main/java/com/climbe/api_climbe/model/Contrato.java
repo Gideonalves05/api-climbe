@@ -10,6 +10,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.Lob;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -33,9 +35,17 @@ public class Contrato {
     @EqualsAndHashCode.Include
     private Integer idContrato;
 
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "proposta_id", nullable = false, unique = true)
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "proposta_id", unique = true)
     private Proposta proposta;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "empresa_id")
+    private Empresa empresa;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "id_servico", nullable = false)
+    private Servico servico;
 
     @Column(name = "data_inicio")
     private LocalDate dataInicio;
@@ -46,6 +56,22 @@ public class Contrato {
     @Enumerated(EnumType.STRING)
     @Column(name = "status", length = 40)
     private StatusContrato status;
+
+    @Column(name = "observacoes", columnDefinition = "TEXT")
+    private String observacoes;
+
+    @Lob
+    @Column(name = "arquivo_conteudo", columnDefinition = "LONGBLOB")
+    private byte[] arquivoConteudo;
+
+    @Column(name = "arquivo_nome", length = 255)
+    private String arquivoNome;
+
+    @Column(name = "arquivo_mime", length = 120)
+    private String arquivoMime;
+
+    @Column(name = "arquivo_tamanho")
+    private Long arquivoTamanho;
 
     @OneToMany(mappedBy = "contrato")
     private Set<Planilha> planilhas = new LinkedHashSet<>();

@@ -13,6 +13,7 @@ import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -33,6 +34,7 @@ public class ReuniaoController {
 
     @PostMapping("/contratante")
     @ResponseStatus(HttpStatus.CREATED)
+    @PreAuthorize("hasAuthority('REUNIAO_AGENDAR')")
     @Operation(
             summary = "Agendar reunião com contratante",
             description = "Após o cadastro da empresa, um funcionário da Climbe agenda a reunião de atendimento inicial.",

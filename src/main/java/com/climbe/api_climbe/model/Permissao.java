@@ -26,6 +26,9 @@ public class Permissao {
     @EqualsAndHashCode.Include
     private Integer idPermissao;
 
+    @Column(name = "codigo", length = 60)
+    private String codigo;
+
     @Column(name = "descricao", nullable = false, length = 255)
     private String descricao;
 

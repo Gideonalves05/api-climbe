@@ -57,6 +57,18 @@ public class Usuario {
     @Column(name = "senha_hash", nullable = false, length = 60)
     private String senhaHash;
 
+    @Column(name = "token_ativacao", length = 64)
+    private String tokenAtivacao;
+
+    @Column(name = "token_expira_em")
+    private java.time.LocalDateTime tokenExpiraEm;
+
+    @Column(name = "motivo_rejeicao", length = 500)
+    private String motivoRejeicao;
+
+    @Column(name = "criado_em")
+    private java.time.LocalDateTime criadoEm;
+
     @OneToMany(mappedBy = "usuario")
     private Set<Notificacao> notificacoes = new LinkedHashSet<>();
 

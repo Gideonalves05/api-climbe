@@ -5,18 +5,23 @@ import com.climbe.api_climbe.dto.DecisaoPropostaDto;
 import com.climbe.api_climbe.dto.PropostaDto;
 import com.climbe.api_climbe.model.Empresa;
 import com.climbe.api_climbe.model.Proposta;
+import com.climbe.api_climbe.model.Servico;
 import com.climbe.api_climbe.model.Usuario;
 import com.climbe.api_climbe.model.enums.SituacaoUsuario;
 import com.climbe.api_climbe.model.enums.StatusProposta;
 import com.climbe.api_climbe.repository.EmpresaRepository;
 import com.climbe.api_climbe.repository.PropostaRepository;
+import com.climbe.api_climbe.repository.ServicoRepository;
 import com.climbe.api_climbe.repository.UsuarioRepository;
+import java.io.IOException;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Objects;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.server.ResponseStatusException;
 
 @Service
@@ -25,15 +30,66 @@ public class PropostaComercialService {
     private final PropostaRepository propostaRepository;
     private final EmpresaRepository empresaRepository;
     private final UsuarioRepository usuarioRepository;
+    private final ServicoRepository servicoRepository;
 
     public PropostaComercialService(
             PropostaRepository propostaRepository,
             EmpresaRepository empresaRepository,
-            UsuarioRepository usuarioRepository
+            UsuarioRepository usuarioRepository,
+            ServicoRepository servicoRepository
     ) {
         this.propostaRepository = propostaRepository;
         this.empresaRepository = empresaRepository;
         this.usuarioRepository = usuarioRepository;
+        this.servicoRepository = servicoRepository;
+    }
+
+    @Transactional
+    public PropostaDto criarPropostaCompleta(
+            Integer idEmpresa,
+            Integer idServico,
+            BigDecimal valor,
+            String observacoes,
+            LocalDate dataValidade,
+            MultipartFile arquivo,
+            Authentication authentication
+    ) {
+        Usuario criador = obterFuncionarioAutenticado(authentication);
+        Empresa empresa = empresaRepository.findById(idEmpresa)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Empresa não encontrada"));
+
+        Proposta proposta = new Proposta();
+        proposta.setEmpresa(empresa);
+        proposta.setUsuarioResponsavel(criador);
+        proposta.setStatus(StatusProposta.PENDENTE_APROVACAO);
+        proposta.setDataCriacao(LocalDate.now());
+        proposta.setValor(valor);
+        proposta.setObservacoes(observacoes);
+        proposta.setDataValidade(dataValidade);
+
+        if (idServico != null) {
+            Servico servico = servicoRepository.findById(idServico)
+                    .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Serviço não encontrado"));
+            proposta.setServico(servico);
+        }
+
+        if (arquivo != null && !arquivo.isEmpty()) {
+            try {
+                proposta.setArquivoConteudo(arquivo.getBytes());
+                proposta.setArquivoNome(arquivo.getOriginalFilename());
+                proposta.setArquivoMime(arquivo.getContentType());
+                proposta.setArquivoTamanho(arquivo.getSize());
+                // Também grava no campo textual legado para compatibilidade com leitor atual
+                String mime = arquivo.getContentType();
+                if (mime != null && mime.startsWith("text/")) {
+                    proposta.setDocumentoProposta(new String(arquivo.getBytes()));
+                }
+            } catch (IOException e) {
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Falha ao ler arquivo", e);
+            }
+        }
+
+        return paraDto(propostaRepository.save(proposta));
     }
 
     @Transactional

@@ -31,3 +31,11 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Local secrets (NUNCA commitar) ###
+src/main/resources/application-local.properties
+.env
+.env.local
+.windsurf
+.agents
+

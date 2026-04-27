@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -47,8 +48,9 @@ public class JwtAutenticacaoFilter extends OncePerRequestFilter {
         String subject = claims.getSubject();
 
         Object authoritiesObj = claims.get("authorities");
-        List<SimpleGrantedAuthority> authorities = List.of();
-        if (authoritiesObj instanceof Collection<?> collection) {
+        List<SimpleGrantedAuthority> authorities = Collections.emptyList();
+        if (authoritiesObj instanceof Collection<?>) {
+            Collection<?> collection = (Collection<?>) authoritiesObj;
             authorities = collection.stream()
                     .map(String::valueOf)
                     .map(SimpleGrantedAuthority::new)

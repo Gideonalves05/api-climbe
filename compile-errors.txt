@@ -1,0 +1,103 @@
+﻿
+> [ERROR] /C:/gestao-climbe-investimentos/api-climbe/src/main/java/com/climbe/api_climbe/controller/NotificacaoAdminCon
+troller.java:[73,16] constructor NotificacaoOutboxDto in record com.climbe.api_climbe.dto.NotificacaoOutboxDto cannot 
+be applied to given types;
+    required: java.lang.Long,java.lang.Long,com.climbe.api_climbe.model.enums.CanalNotificacao,java.lang.String,com.cli
+mbe.api_climbe.model.enums.StatusEntregaNotificacao,java.lang.Integer,java.time.LocalDateTime,java.time.LocalDateTime,j
+ava.lang.String,java.time.LocalDateTime,java.time.LocalDateTime
+    found:    java.lang.Long,java.lang.Integer,com.climbe.api_climbe.model.enums.CanalNotificacao,java.lang.String,com.
+climbe.api_climbe.model.enums.StatusEntregaNotificacao,java.lang.Integer,java.lang.Integer,java.time.LocalDateTime,java
+.time.LocalDateTime,java.lang.String,java.time.LocalDateTime,java.time.LocalDateTime
+    reason: actual and formal argument lists differ in length
+> [ERROR] /C:/gestao-climbe-investimentos/api-climbe/src/main/java/com/climbe/api_climbe/controller/NotificacaoControll
+er.java:[55,49] cannot find symbol
+    symbol:   method findByUsuarioAndLidaFalseAndTipoAndCriadoEmAfterOrderByCriadoEmDesc(com.climbe.api_climbe.model.Us
+uario,java.lang.Boolean,com.climbe.api_climbe.model.enums.TipoNotificacao,java.time.LocalDateTime)
+    location: variable notificacaoRepository of type com.climbe.api_climbe.repository.NotificacaoRepository
+> [ERROR] /C:/gestao-climbe-investimentos/api-climbe/src/main/java/com/climbe/api_climbe/controller/NotificacaoControll
+er.java:[59,49] method findByUsuarioAndLidaFalseAndTipoOrderByCriadoEmDesc in interface 
+com.climbe.api_climbe.repository.NotificacaoRepository cannot be applied to given types;
+    required: com.climbe.api_climbe.model.Usuario,com.climbe.api_climbe.model.enums.TipoNotificacao
+    found:    com.climbe.api_climbe.model.Usuario,java.lang.Boolean,com.climbe.api_climbe.model.enums.TipoNotificacao
+    reason: actual and formal argument lists differ in length
+> [ERROR] /C:/gestao-climbe-investimentos/api-climbe/src/main/java/com/climbe/api_climbe/controller/NotificacaoControll
+er.java:[81,60] incompatible types: java.lang.Integer cannot be converted to java.lang.Long
+> [ERROR] /C:/gestao-climbe-investimentos/api-climbe/src/main/java/com/climbe/api_climbe/controller/NotificacaoControll
+er.java:[148,16] constructor NotificacaoDto in record com.climbe.api_climbe.dto.NotificacaoDto cannot be applied to 
+given types;
+    required: java.lang.Integer,java.lang.Integer,java.lang.String,java.time.LocalDate,com.climbe.api_climbe.model.enum
+s.TipoNotificacao
+    found:    java.lang.Integer,java.lang.Integer,com.climbe.api_climbe.model.enums.TipoNotificacao,java.lang.String,ja
+va.lang.String,java.lang.String,java.lang.String,java.lang.Boolean,java.time.LocalDateTime,java.time.LocalDateTime
+    reason: actual and formal argument lists differ in length
+> [ERROR] /C:/gestao-climbe-investimentos/api-climbe/src/main/java/com/climbe/api_climbe/controller/NotificacaoControll
+er.java:[163,16] constructor PreferenciaNotificacaoDto in record com.climbe.api_climbe.dto.PreferenciaNotificacaoDto 
+cannot be applied to given types;
+    required: 
+com.climbe.api_climbe.model.enums.TipoNotificacao,com.climbe.api_climbe.model.enums.CanalNotificacao,java.lang.Boolean
+    found:    java.lang.Integer,java.lang.Integer,com.climbe.api_climbe.model.enums.TipoNotificacao,com.climbe.api_clim
+be.model.enums.CanalNotificacao,java.lang.Boolean
+    reason: actual and formal argument lists differ in length
+> [ERROR] 
+/C:/gestao-climbe-investimentos/api-climbe/src/main/java/com/climbe/api_climbe/service/SseService.java:[33,9] cannot 
+find symbol
+    symbol:   variable emitterPorUsuario
+    location: class com.climbe.api_climbe.service.SseService
+> [ERROR] /C:/gestao-climbe-investimentos/api-climbe/src/main/java/com/climbe/api_climbe/service/NotificacaoPublisherIm
+pl.java:[79,46] incompatible types: java.lang.Integer cannot be converted to java.lang.Long
+  [INFO] 8 errors 
+  [INFO] -------------------------------------------------------------
+  [INFO] ------------------------------------------------------------------------
+> [ERROR] /C:/gestao-climbe-investimentos/api-climbe/src/main/java/com/climbe/api_climbe/controller/NotificacaoAdminCon
+troller.java:[73,16] constructor NotificacaoOutboxDto in record com.climbe.api_climbe.dto.NotificacaoOutboxDto cannot 
+be applied to given types;
+  [ERROR]   required: java.lang.Long,java.lang.Long,com.climbe.api_climbe.model.enums.CanalNotificacao,java.lang.String
+,com.climbe.api_climbe.model.enums.StatusEntregaNotificacao,java.lang.Integer,java.time.LocalDateTime,java.time.LocalDa
+teTime,java.lang.String,java.time.LocalDateTime,java.time.LocalDateTime
+  [ERROR]   found:    java.lang.Long,java.lang.Integer,com.climbe.api_climbe.model.enums.CanalNotificacao,java.lang.Str
+ing,com.climbe.api_climbe.model.enums.StatusEntregaNotificacao,java.lang.Integer,java.lang.Integer,java.time.LocalDateT
+ime,java.time.LocalDateTime,java.lang.String,java.time.LocalDateTime,java.time.LocalDateTime
+  [ERROR]   reason: actual and formal argument lists differ in length
+> [ERROR] /C:/gestao-climbe-investimentos/api-climbe/src/main/java/com/climbe/api_climbe/controller/NotificacaoControll
+er.java:[55,49] cannot find symbol
+  [ERROR]   symbol:   method findByUsuarioAndLidaFalseAndTipoAndCriadoEmAfterOrderByCriadoEmDesc(com.climbe.api_climbe.
+model.Usuario,java.lang.Boolean,com.climbe.api_climbe.model.enums.TipoNotificacao,java.time.LocalDateTime)
+  [ERROR]   location: variable notificacaoRepository of type com.climbe.api_climbe.repository.NotificacaoRepository
+> [ERROR] /C:/gestao-climbe-investimentos/api-climbe/src/main/java/com/climbe/api_climbe/controller/NotificacaoControll
+er.java:[59,49] method findByUsuarioAndLidaFalseAndTipoOrderByCriadoEmDesc in interface 
+com.climbe.api_climbe.repository.NotificacaoRepository cannot be applied to given types;
+  [ERROR]   required: com.climbe.api_climbe.model.Usuario,com.climbe.api_climbe.model.enums.TipoNotificacao
+  [ERROR]   found:    
+com.climbe.api_climbe.model.Usuario,java.lang.Boolean,com.climbe.api_climbe.model.enums.TipoNotificacao
+  [ERROR]   reason: actual and formal argument lists differ in length
+> [ERROR] /C:/gestao-climbe-investimentos/api-climbe/src/main/java/com/climbe/api_climbe/controller/NotificacaoControll
+er.java:[81,60] incompatible types: java.lang.Integer cannot be converted to java.lang.Long
+> [ERROR] /C:/gestao-climbe-investimentos/api-climbe/src/main/java/com/climbe/api_climbe/controller/NotificacaoControll
+er.java:[148,16] constructor NotificacaoDto in record com.climbe.api_climbe.dto.NotificacaoDto cannot be applied to 
+given types;
+  [ERROR]   required: java.lang.Integer,java.lang.Integer,java.lang.String,java.time.LocalDate,com.climbe.api_climbe.mo
+del.enums.TipoNotificacao
+  [ERROR]   found:    java.lang.Integer,java.lang.Integer,com.climbe.api_climbe.model.enums.TipoNotificacao,java.lang.S
+tring,java.lang.String,java.lang.String,java.lang.String,java.lang.Boolean,java.time.LocalDateTime,java.time.LocalDateT
+ime
+  [ERROR]   reason: actual and formal argument lists differ in length
+> [ERROR] /C:/gestao-climbe-investimentos/api-climbe/src/main/java/com/climbe/api_climbe/controller/NotificacaoControll
+er.java:[163,16] constructor PreferenciaNotificacaoDto in record com.climbe.api_climbe.dto.PreferenciaNotificacaoDto 
+cannot be applied to given types;
+  [ERROR]   required: 
+com.climbe.api_climbe.model.enums.TipoNotificacao,com.climbe.api_climbe.model.enums.CanalNotificacao,java.lang.Boolean
+  [ERROR]   found:    java.lang.Integer,java.lang.Integer,com.climbe.api_climbe.model.enums.TipoNotificacao,com.climbe.
+api_climbe.model.enums.CanalNotificacao,java.lang.Boolean
+  [ERROR]   reason: actual and formal argument lists differ in length
+> [ERROR] 
+/C:/gestao-climbe-investimentos/api-climbe/src/main/java/com/climbe/api_climbe/service/SseService.java:[33,9] cannot 
+find symbol
+  [ERROR]   symbol:   variable emitterPorUsuario
+  [ERROR]   location: class com.climbe.api_climbe.service.SseService
+> [ERROR] /C:/gestao-climbe-investimentos/api-climbe/src/main/java/com/climbe/api_climbe/service/NotificacaoPublisherIm
+pl.java:[79,46] incompatible types: java.lang.Integer cannot be converted to java.lang.Long
+  [ERROR] -> [Help 1]
+  [ERROR] 
+  [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+
+
